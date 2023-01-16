@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Nintendo Friend Code Shortener</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<span id="title"
+			><h1><a href="/">swf.codes</a></h1>
+			<h2 id="tagline">Nintendo Friend Code Shortener</h2></span
+		>
+		<noscript>
+			<p>
+				This site requires JavaScript to be enabled. Please enable it and reload
+				the page.
+			</p>
+		</noscript>
+		<div id="code-display">
+			<h3>Your new friend's code is:</h3>
+			<form class="normform" onsubmit="copyFriend();return false">
+				<input type="text" id="code" readonly />
+				<input type="submit" value="Copy" id="copy-button" />
+			</form>
+		</div>
+		<div id="checksum-error" class="error">
+			<h3>Checksum error</h3>
+			<p>
+				The short code you entered is not valid. This is usually caused by a
+				typo; please try again.
+			</p>
+		</div>
+		<div id="encode">
+			<div id="pre">
+				<h3>Enter your code:</h3>
+				<form class="normform" onsubmit="createCode();return false">
+					<input
+						type="text"
+						id="code-input"
+						pattern="((S|s)?(W|w)?)-?(\d){4}-?(\d){4}-?(\d){4}"
+						required
+					/>
+					<input type="submit" value="Shorten" id="encode-button" />
+				</form>
+			</div>
+			<div id="post" class="success">
+				<h3>Your shortened URL is:</h3>
+				<form class="normform" onsubmit="copySelf(); return false">
+					<input type="text" id="url-output" />
+					<input type="submit" value="Copy" id="copy-button" />
+				</form>
+				<h3>QR Code</h3>
+				<div id="qrcode"></div>
+			</div>
+		</div>
+		<script src="main.js"></script>
+		<script src="qrcode.js"></script>
+		<small id="footer"
+			>The encoding and decoding of the codes takes place in your browser.
+			Friend codes are never stored and are only visible to those with the
+			link.</small
+		>
+	</body>
+</html>
